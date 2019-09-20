@@ -1,6 +1,6 @@
 # Random Forest-based clinical outcome prediction using radiomic features
 - Clinical outcome include: "histype", "WT1", "ER", "TR"
-- Radiomic features include: "age", "mean", "sd", "entropy", "mpp"
+- Radiomic features include: "age", "mean", "sd", "entropy", "mpp", "CA125"
 - Prediction algorithm: Random Forest
 
 ## Contents
@@ -23,15 +23,16 @@ data belong to 7 indivisuals marked in red are delated.
 
 ## Conclusion
 1. Till now there is still few differences between prediction result calculated by R code and Python code. 
+
 2. Reasons include, but not limited to: 
-       1. Designs of packaging functions (random forest, roc/auc calculation) in R and Python are different. 
+       - Designs of packaging functions (random forest, roc/auc calculation) in R and Python are different. 
        For example, the number of altomatic generated thresholds in Python function is fewer, so the roc curve 
        looks like a "ladder diagram". (see [Python code 1](https://github.com/Radilology-HKU/RF_class/blob/master/roc.ipynb))
        
-       2. Many default parameters in packaging functions (random forest, roc/auc calculation) might have an inestimable 
+       - Many default parameters in packaging functions (random forest, roc/auc calculation) might have an inestimable 
        impact on the final result, because some operation in packaging functions  are altomatically finished. 
        
-       3. Essential problems are not considered into prediction. Throuth two test (see [Python code 2](https://github.com/Radilology-HKU/RF_class/blob/master/roc1.ipynb) and [Python code 3](https://github.com/Radilology-HKU/RF_class/blob/master/roc2.ipynb) ), we can conclude that 
+       - Essential problems are not considered into prediction. Throuth two test (see [Python code 2](https://github.com/Radilology-HKU/RF_class/blob/master/roc1.ipynb) and [Python code 3](https://github.com/Radilology-HKU/RF_class/blob/master/roc2.ipynb) ), we can conclude that 
        the order of input features can influence final result. Besides, whether 4 labels (PR, ER, WT1, hisype) should be predicted together might 
        depends on the nature of this research. 
 
